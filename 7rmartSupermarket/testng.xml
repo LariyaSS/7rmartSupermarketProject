@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+<listeners>
+<listener class-name="listnerforreport.Listeners"></listener>
+</listeners>
   <test thread-count="5" name="Test">
+  <parameter name="browser" value="Chrome"></parameter>
     <classes>
-   
-    
-      <class name="testscripts.LoginTest">
-
+       <class name="testscripts.LoginTest">
         <methods>
-<include name="verifyUserIsAbleToLoginWithValidUsernameAndValidPassword()"></include>
-</methods>
+            <include name="verifyUserIsAbleToLoginWithValidUsernameAndValidPassword"></include>
+       </methods>
+       </class>
+       <class name="testscripts.CategoryTest">
+        <methods>
+            <include name="verifyUserIsAbleToAddCategoryInformations"></include>
+       </methods>
        </class>
     </classes>
   </test> <!-- Test -->

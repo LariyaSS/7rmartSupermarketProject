@@ -2,24 +2,46 @@ package testscripts;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import utilities.WaitUtility;
 
 public class Base {
 	
 	WebDriver driver;
-	@BeforeMethod
-	public void initializeBrowser()
+	
+	@BeforeMethod(alwaysRun=true)
+	@Parameters("browser")
+	public void initializeBrowser(String browser) throws Exception
 		{
-			driver=new ChromeDriver();
+		    if(browser.equalsIgnoreCase("Chrome"))
+		    {
+		    	driver=new ChromeDriver();
+		    }
+		    else if(browser.equalsIgnoreCase("Edge"))
+		    {
+		    	driver=new EdgeDriver();
+		    }
+		    else if(browser.equalsIgnoreCase("Firefox"))
+		    {
+		    	driver=new FirefoxDriver();
+		    }
+		    else
+		    {
+		    	throw new Exception("Browser is not correct");
+		    }
+			
 			driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 			WaitUtility waitutility=new WaitUtility(driver);
 			waitutility.implicitWait(driver);
            	driver.manage().window().maximize();
 		}
-	@AfterMethod
+	
+	@AfterMethod(alwaysRun=true)
 	public void browserQuit()
 		{
 			driver.quit();
