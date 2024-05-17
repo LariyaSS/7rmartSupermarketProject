@@ -1,15 +1,13 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.LoginPage;
 import pages.ManageOfferCodePage;
 import utilities.ExcelUtility;
 
 public class ManageOfferCodeTest extends Base {
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="User is able to add offer code information")
 	public void verifyUserIsAbleToAddOfferInformations()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");

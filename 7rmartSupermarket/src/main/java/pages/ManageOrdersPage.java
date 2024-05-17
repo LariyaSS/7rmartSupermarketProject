@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import utilities.ExcelUtility;
 import utilities.PageUtility;
 
@@ -22,7 +21,6 @@ WebDriver driver;
 	@FindBy(xpath="//input[@id='od']") private WebElement orderIdField;
 	@FindBy(xpath="//button[@name='Search']") private WebElement searchButton;
 	@FindBy(xpath="//table/tbody/tr[1]//td[6]//a[1]") private WebElement changeStatus;
-	
 	@FindBy(xpath = "//button[@class='btn btn-info'][1]") private WebElement updateButton;
 	@FindBy(xpath = "//select[@id='status']") private WebElement deliveryStatusDropDown;
 	@FindBy(xpath = "//table/tbody/tr/td[6]/span[1]") private WebElement newStatus;

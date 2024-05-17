@@ -1,16 +1,14 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.LoginPage;
 import pages.ManageDeliveryBoyPage;
 import utilities.ExcelUtility;
 
 public class ManageDeliveryBoyTest extends Base {
 	
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="User is able to add delivery boy information")
 	public void userIsAbleToAddDeliveryBoyInformations()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");

@@ -1,16 +1,13 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.AdminUsersPage;
 import pages.LoginPage;
-
 import utilities.ExcelUtility;
 
 public class AdminUsersTest extends Base {
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="user is able to add admin user information")
 	public void userIsAbleToAddAdminUsersInformations()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");

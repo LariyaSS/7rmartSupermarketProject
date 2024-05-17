@@ -1,20 +1,16 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import java.awt.AWTException;
-
 import org.testng.annotations.Test;
-
 import pages.LoginPage;
-
 import pages.MobileSliderPage;
 import utilities.Constants;
 import utilities.ExcelUtility;
 
 
 public class MobileSliderTest extends Base{
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,priority=1,description="verify user is able to add a mobile slider information")
 	
 	public void verifyUserIsAbleAddMobileSliderInformations() throws AWTException
 	{

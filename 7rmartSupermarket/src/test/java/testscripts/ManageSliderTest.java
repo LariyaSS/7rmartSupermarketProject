@@ -1,15 +1,13 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.LoginPage;
 import pages.ManageSliderPage;
 import utilities.ExcelUtility;
 
 public class ManageSliderTest extends Base {
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="User is able add manage slider information")
 	public void verifyUserIsAbleToAddSliderInformation()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");

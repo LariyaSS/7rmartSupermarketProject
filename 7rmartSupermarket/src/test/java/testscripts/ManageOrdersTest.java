@@ -1,16 +1,14 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.LoginPage;
 import pages.ManageOrdersPage;
 import utilities.ExcelUtility;
 import utilities.PageUtility;
 
 public class ManageOrdersTest extends Base {
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="user is able to search an item and update the status")
 	public void verifyUserIsAbleToSearchAnOrderedItemAndUpdateStatus()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");

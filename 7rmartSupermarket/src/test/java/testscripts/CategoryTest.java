@@ -1,15 +1,13 @@
 package testscripts;
 
 import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
-
 import pages.CategoryPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class CategoryTest extends Base {
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="User is able to add category information")
 	public void verifyUserIsAbleToAddCategoryInformations()
 	{
 		String inputUsername = ExcelUtility.getString(1, 0, "LoginPage");
